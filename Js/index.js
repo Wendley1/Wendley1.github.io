@@ -14,7 +14,14 @@ function OnInput() {
     if(nota3 == "" || nota3 == 0)
     {
         if(!ValidInput(nota1) || !ValidInput(nota2))
-            return LogOutput("As notas estão inválidas. Verifique se digitou corretamente!");        
+        {
+            if(nota1 == "")
+                return LogOutput("Preencha a primeira nota")
+            else if(nota2 == "")
+                return LogOutput("Preencha a segunda nota")
+            else
+                return LogOutput("As notas estão inválidas. Verifique se digitou corretamente!");    
+        }        
     }else
     {
         if(!ValidInput(nota1) || !ValidInput(nota2) || !ValidInput(nota3))
