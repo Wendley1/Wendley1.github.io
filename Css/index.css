@@ -5,7 +5,7 @@ body {
 
 .main {
     background-color: rgb(230, 238, 247);
-    width: 40vw;
+    /*width: 40vw;*/
     height: 65vh;
     border-radius: 20px;
     position: relative;
@@ -33,7 +33,7 @@ label {
     position: relative;
     top: 15px;
 }
-
+/*
 @media screen and (min-width: 1280px) {
     body {
         background-color: rgb(117, 117, 117);
@@ -42,8 +42,8 @@ label {
 
     .main {
         background-color: rgb(230, 238, 247);
-        width: 40vw;
-        height: 65vh;
+        width: 48vw;
+        height: 70svh;
         border-radius: 20px;
         position: relative;
         margin: auto;
