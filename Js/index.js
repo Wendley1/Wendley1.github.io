@@ -2,10 +2,6 @@ let textFieldNotaT1 = document.getElementById("n1");
 let textFieldNotaT2 = document.getElementById("n2");
 let textFieldNotaT3 = document.getElementById("n3");
 
-textFieldNotaT1.value = "";
-textFieldNotaT2.value = "";
-textFieldNotaT3.value = "";
-
 textFieldNotaT1.addEventListener("input", OnInput);
 textFieldNotaT2.addEventListener("input", OnInput);
 textFieldNotaT3.addEventListener("input", OnInput);
@@ -15,13 +11,13 @@ function OnInput() {
     var nota2 = textFieldNotaT2.value;
     var nota3 = textFieldNotaT3.value;
 
-    if(nota3 == "" || nota3 == 0)
+    if(nota3 === "" || nota3 == 0)
     {
         if(!ValidInput(nota1) || !ValidInput(nota2))
         {
-            if(nota1 == "")
+            if(nota1 === "")
                 return LogOutput("Preencha a primeira nota")
-            else if(nota2 == "")
+            else if(nota2 === "")
                 return LogOutput("Preencha a segunda nota")
             else
                 return LogOutput("As notas estão inválidas. Verifique se digitou corretamente!");    
@@ -38,7 +34,7 @@ function OnInput() {
 
     var msm;
 
-    if(nota3 == "" || nota3 == 0)
+    if(nota3 === "" || nota3 == 0)
     {
         msm = `Precisa ${precisa}\nMedia Atual: ${media}\nStatus: ${precisa > 10 ? "Reprovado nessa materia 😢" : "Aguardando ultima nota"}`
     }
@@ -56,7 +52,7 @@ function LogOutput(msg) {
 
 function ValidInput(nota)
 {
-    if (nota == "" || nota.match(/[a-z]/i) != null || nota > 10 || nota.length > 3) {
+    if (nota === "" || nota.match(/[a-z]/i) != null || nota > 10 || nota.length > 3) {
         return false;
     }
 
