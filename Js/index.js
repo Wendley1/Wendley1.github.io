@@ -2,6 +2,10 @@ let textFieldNotaT1 = document.getElementById("n1");
 let textFieldNotaT2 = document.getElementById("n2");
 let textFieldNotaT3 = document.getElementById("n3");
 
+textFieldNotaT1.value = "";
+textFieldNotaT2.value = "";
+textFieldNotaT3.value = "";
+
 textFieldNotaT1.addEventListener("input", OnInput);
 textFieldNotaT2.addEventListener("input", OnInput);
 textFieldNotaT3.addEventListener("input", OnInput);
