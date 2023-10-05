@@ -33,3 +33,46 @@ label {
     position: relative;
     top: 15px;
 }
+
+@media screen and (min-width: 1280px) {
+    body {
+        background-color: rgb(117, 117, 117);
+        color: black;
+    }
+
+    .main {
+        background-color: rgb(230, 238, 247);
+        width: 40vw;
+        height: 65vh;
+        border-radius: 20px;
+        position: relative;
+        margin: auto;
+        top: 80px;
+    }
+
+    label {
+        font: normal 16pt Arial;
+    }
+
+    #message {
+        font: bold 18pt Arial;
+    }
+
+    .container {
+        text-align: center;
+        margin: auto;
+        position: relative;
+        top: 50px;
+    }
+
+    center {
+        position: relative;
+        top: 8px;
+    }
+
+    .output {
+        margin: auto;
+        position: relative;
+        top: 15px;
+    }
+}
