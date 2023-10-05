@@ -30,7 +30,7 @@ function OnInput() {
 
     var soma = SomaTotalNota(nota1, nota2, nota3);
     var precisa = ((60 - soma) / 4).toFixed(1);
-    var media = (soma/10);
+    var media = (soma/10).toFixed(2);;
 
     var msm;
 
