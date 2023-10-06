@@ -11,21 +11,14 @@ function OnInput() {
     var nota2 = textFieldNotaT2.value;
     var nota3 = textFieldNotaT3.value;
 
-    if(nota3 === "" || nota3 == 0)
+    if(!ValidInput(nota1) || !ValidInput(nota2) || !ValidInput(nota3))
     {
-        if(!ValidInput(nota1) || !ValidInput(nota2))
-        {
-            if(nota1 === "")
-                return LogOutput("Preencha a primeira nota")
-            else if(nota2 === "")
-                return LogOutput("Preencha a segunda nota")
-            else
-                return LogOutput("As notas estão inválidas. Verifique se digitou corretamente!");    
-        }        
-    }else
-    {
-        if(!ValidInput(nota1) || !ValidInput(nota2) || !ValidInput(nota3))
-            return LogOutput("As notas estão inválidas. Verifique se digitou corretamente!");    
+        if(nota1 === "")
+            return LogOutput("Preencha a primeira nota")
+        else if(nota2 === "")
+            return LogOutput("Preencha a segunda nota")       
+        else if(nota3 != "" && nota1.length > 0 && nota1.length > 0)
+            return LogOutput("As notas estão inválidas. Verifique se digitou corretamente!");  
     }
 
     var soma = SomaTotalNota(nota1, nota2, nota3);
@@ -34,13 +27,13 @@ function OnInput() {
 
     var msm;
 
-    if(nota3 === "" || nota3 == 0)
+    if(nota3 === "")
     {
-        msm = `Precisa ${precisa}\nMedia Atual: ${media}\nStatus: ${precisa > 10 ? "Reprovado nessa materia 😢" : `${media >= 6 ? "Aprovado 😎" : "Aguardando ultima nota"}`}`
+        msm = `Precisa ${precisa}\nMedia Atual: ${media}\nStatus: ${precisa > 10 ? "Reprovado nessa diciplina 😢" : `${media >= 6 ? "Aprovado nessa diciplina 😎" : "Aguardando ultima nota"}`}`
     }
     else
     {
-        msm = `Media Final: ${media}\n${media < 6 ? `Status: Reprovado 😭\nPrecisava: ${((60 - SomaTotalNota(nota1,nota2,0)) / 4).toFixed(1)}` : "Status: Aprovado 😎"}`
+        msm = `Media Final: ${media}\nStatus: ${media < 6 ? `Reprovado nessa diciplina 😭\nPrecisava: ${((60 - SomaTotalNota(nota1,nota2,0)) / 4).toFixed(1)}` : "Aprovado na diciplina 😎"}`
     }
 
     return LogOutput(msm);
