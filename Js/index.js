@@ -36,7 +36,7 @@ function OnInput() {
 
     if(nota3 === "" || nota3 == 0)
     {
-        msm = `Precisa ${precisa}\nMedia Atual: ${media}\nStatus: ${precisa > 10 ? "Reprovado nessa materia 😢" : "Aguardando ultima nota"}`
+        msm = `Precisa ${precisa}\nMedia Atual: ${media}\nStatus: ${precisa > 10 ? "Reprovado nessa materia 😢" : `${media >= 6 ? "Aprovado 😎" : "Aguardando ultima nota"}`}`
     }
     else
     {
