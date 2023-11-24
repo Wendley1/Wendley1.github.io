@@ -23,6 +23,9 @@ function OnInput() {
     var precisa = ((60 - soma) / 4).toFixed(1);
     var media = (soma / 10).toFixed(2);
 
+    if (!TestarPrecisa(nota1, nota2, precisa))
+        precisa = (parseFloat(precisa) + 0.1).toFixed(1);
+
     if (precisa == "NaN")
         return LogOutput("As notas estão inválidas. Verifique se digitou corretamente!")
 
@@ -36,6 +39,13 @@ function OnInput() {
     }
 
     return LogOutput(msm);
+}
+
+function TestarPrecisa(nota1, nota2, precisa) {
+    var soma = SomaTotalNota(nota1, nota2, precisa);
+    var media = (soma / 10).toFixed(2);
+
+    return media >= 6;
 }
 
 function StringNull(s) {
