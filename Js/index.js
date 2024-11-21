@@ -35,7 +35,7 @@ function OnInput(){
         msm = `Precisa: ${precisaR}\nMedia Atual: ${mediaR}\nStatus: ${precisa > 100 ? "Reprovado nessa diciplina 😢" : `${media >= 60 ? "Aprovado nessa diciplina 😎" : "Aguardando ultima nota"}`}`
     }
     else {
-        msm = `Media Final: ${mediaR}\nStatus: ${media < 60 ? `Reprovado nessa diciplina 😭\nPrecisava: ${precisava}` : "Aprovado na diciplina 😎"}`
+        msm = `Media Final: ${mediaR}\nStatus: ${mediaR < 6 ? `Reprovado nessa diciplina 😭\nPrecisava: ${precisava}` : "Aprovado na diciplina 😎"}`
     }
 
     return LogOutput(msm);
@@ -71,3 +71,5 @@ document.querySelector(".close").addEventListener("click", function(){
     document.querySelector(".popup").style.display = "none";
     document.querySelector(".container").style.display = "flex";
 });
+
+
