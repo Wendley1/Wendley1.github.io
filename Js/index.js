@@ -19,9 +19,9 @@ function OnInput(){
     }
 
     let soma = SomaTotalNota(nota1, nota2, nota3);
-    let precisa = ((600 - soma) / 4);
     let media = (soma / 10);
-    
+    let precisa = (600 - SomaTotalNota(nota1, nota2, 0)) / 4;
+
     if (precisa.toString() == "NaN")
         return LogOutput("As notas estão inválidas. Verifique se digitou corretamente!")
 
@@ -29,13 +29,17 @@ function OnInput(){
 
     let mediaR = (media/10).toFixed(1);
     let precisaR = (precisa/10).toFixed(1);
-    let precisava = (((600 - SomaTotalNota(nota1, nota2, 0)) / 4) / 10).toFixed(1);
+
+    if(precisaInvalido(precisaR, nota1, nota2)){
+        console.log(`nota reajustada de '${precisaR}' para '${(parseFloat(precisaR) + 0.1).toFixed(1)}'`);
+        precisaR = (parseFloat(precisaR) + 0.1).toFixed(1);
+    }
 
     if (!(nota3.toString().length > 1)) {
         msm = `Precisa: ${precisaR}\nMedia Atual: ${mediaR}\nStatus: ${precisa > 100 ? "Reprovado nessa diciplina 😢" : `${media >= 60 ? "Aprovado nessa diciplina 😎" : "Aguardando ultima nota"}`}`
     }
     else {
-        msm = `Media Final: ${mediaR}\nStatus: ${mediaR < 6 ? `Reprovado nessa diciplina 😭\nPrecisava: ${precisava}` : "Aprovado na diciplina 😎"}`
+        msm = `Media Final: ${mediaR}\nStatus: ${mediaR < 6 ? `Reprovado nessa diciplina 😭\nPrecisava: ${precisaR}` : "Aprovado na diciplina 😎"}`
     }
 
     return LogOutput(msm);
@@ -62,6 +66,13 @@ function AcceptVirgula(input){
     return input.replace(',', '.')
 }
 
+function precisaInvalido(precisa, nota1, nota2){
+    let soma = SomaTotalNota(nota1, nota2, precisa*10);
+    let media = (soma/10);
+    console.log(`${media} | ${media < 60}`)
+    return media < 60;
+}
+
 document.querySelector(".info").addEventListener("click", function(){
     document.querySelector(".popup").style.display = "flex";
     document.querySelector(".container").style.display = "none";
@@ -71,5 +82,3 @@ document.querySelector(".close").addEventListener("click", function(){
     document.querySelector(".popup").style.display = "none";
     document.querySelector(".container").style.display = "flex";
 });
-
-
