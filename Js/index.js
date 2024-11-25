@@ -27,7 +27,7 @@ function OnInput(){
 
     let msm;
 
-    let mediaR = (media/10).toFixed(1);
+    let mediaR = (media/10).toFixed(2);
     let precisaR = (precisa/10).toFixed(1);
 
     if(precisaInvalido(precisaR, nota1, nota2)){
